@@ -1,24 +1,21 @@
-// utils/parseSearchParamsToNumberObject.ts
+import { IParams, IQueryParams } from "@/interfaces/IBaseParams";
 
-type Params = Record<string, string | undefined | null>;
-type ParsedParams<T extends Record<string, number>> = T;
+export const generateParams = async ({ searchParams }: IParams) => {
+  const result: Record<string, string | number | string[]> = {};
+  const rawParams = await searchParams;
+  const params = rawParams as Record<string, unknown>;
 
-/**
- * Parse search params menjadi object number dengan fallback default
- * @param rawParams - Object dari searchParams (Next.js server component) atau hasil dari URLSearchParams
- * @param defaults - Default value untuk setiap key jika value tidak valid
- */
-export function parseSearchParamsToNumberObject<
-  T extends Record<string, number>
->(rawParams: Params, defaults: T): ParsedParams<T> {
-  const parsed: Partial<Record<keyof T, number>> = {};
+  for (const key in params) {
+    const val = params[key];
 
-  for (const key in defaults) {
-    const rawValue = rawParams[key];
-    const num = Number(rawValue);
-
-    parsed[key] = !isNaN(num) ? num : defaults[key];
+    if (Array.isArray(val)) {
+      result[key] = val as string[];
+    } else if (val !== undefined && !isNaN(Number(val))) {
+      result[key] = Number(val);
+    } else {
+      result[key] = (val ?? "").toString();
+    }
   }
 
-  return parsed as ParsedParams<T>;
-}
+  return result;
+};

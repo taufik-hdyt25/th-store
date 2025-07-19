@@ -1,4 +1,12 @@
 export interface IParams {
-  searchParams: { [key: string]: string | string[] | undefined };
-  params: { [key: string]: string | string[] | undefined };
+  searchParams?: Promise<{
+    [key: string]: string | string[] | undefined;
+  }>;
+  params?: Promise<{ slug: string }>;
+}
+
+export interface IQueryParams {
+  page?: number;
+  length?: number;
+  search?: string;
 }
