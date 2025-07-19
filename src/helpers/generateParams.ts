@@ -1,12 +1,13 @@
 import { IParams, IQueryParams } from "@/interfaces/IBaseParams";
 
-export const generateParams = async ({ searchParams }: IParams) => {
+export const generateParams = async ({ searchParams, params }: IParams) => {
   const result: Record<string, string | number | string[]> = {};
   const rawParams = await searchParams;
-  const params = rawParams as Record<string, unknown>;
+  const valueParams = await params;
+  const valueQueryParams = rawParams as Record<string, unknown>;
 
-  for (const key in params) {
-    const val = params[key];
+  for (const key in valueQueryParams) {
+    const val = valueQueryParams[key];
 
     if (Array.isArray(val)) {
       result[key] = val as string[];
@@ -17,5 +18,8 @@ export const generateParams = async ({ searchParams }: IParams) => {
     }
   }
 
-  return result;
+  return {
+    query: result,
+    param: valueParams,
+  };
 };

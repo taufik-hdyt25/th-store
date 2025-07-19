@@ -1,13 +1,9 @@
 "use client";
 
-import { IQueryParams } from "@/interfaces/IBaseParams";
+import { IPagesParams } from "@/interfaces/IBaseParams";
 import React from "react";
 
-interface IProps {
-  params?: IQueryParams;
-}
-
-const Home: React.FC<IProps> = ({ params }) => {
+const Home: React.FC<IPagesParams> = ({ params }) => {
   return <div>Home NIH</div>;
 };
 

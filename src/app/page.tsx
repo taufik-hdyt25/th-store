@@ -1,12 +1,15 @@
 import Home from "@/containers/Home/Home";
 import { generateParams } from "@/helpers/generateParams";
 import { IParams } from "@/interfaces/IBaseParams";
+import { Metadata } from "next";
 import React from "react";
 
-const HomePage = async ({ searchParams }: IParams) => {
-  const param = await generateParams({ searchParams });
-
-  return <Home params={param} />;
+export const metadata: Metadata = {
+  title: "Beranda - Aplikasi Saya",
+};
+const HomePage = async ({ searchParams, params }: IParams) => {
+  const { query } = await generateParams({ searchParams, params });
+  return <Home params={query} />;
 };
 
 export default HomePage;
