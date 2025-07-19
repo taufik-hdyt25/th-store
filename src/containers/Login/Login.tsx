@@ -1,7 +1,20 @@
+"use client";
+
+import { signIn } from "next-auth/react";
 import React from "react";
 
 const Login: React.FC = () => {
-  return <div>Login</div>;
+  return (
+    <button
+      onClick={() =>
+        signIn("google", {
+          callbackUrl: "/",
+        })
+      }
+    >
+      Login dengan Google
+    </button>
+  );
 };
 
 export default Login;

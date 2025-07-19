@@ -1,3 +1,4 @@
+import Layout from "@/components/Layout";
 import Home from "@/containers/Home/Home";
 import { generateParams } from "@/helpers/generateParams";
 import { IParams } from "@/interfaces/IBaseParams";
@@ -9,7 +10,11 @@ export const metadata: Metadata = {
 };
 const HomePage = async ({ searchParams, params }: IParams) => {
   const { query } = await generateParams({ searchParams, params });
-  return <Home params={query} />;
+  return (
+    <Layout>
+      <Home params={query} />;
+    </Layout>
+  );
 };
 
 export default HomePage;
