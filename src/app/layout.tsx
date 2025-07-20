@@ -1,5 +1,7 @@
 import { Metadata } from "next";
 import "./global.css";
+import Providers from "./providers";
+import { Geist } from "next/font/google";
 
 export const metadata: Metadata = {
   title: {
@@ -33,6 +35,10 @@ export const metadata: Metadata = {
   metadataBase: new URL("https://example.com"),
 };
 
+const geist = Geist({
+  subsets: ["latin"],
+});
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -40,7 +46,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body cz-shortcut-listen="true">{children}</body>
+      <body cz-shortcut-listen="true" className="chakra-ui-light">
+        <Providers>{children}</Providers>
+      </body>
     </html>
   );
 }

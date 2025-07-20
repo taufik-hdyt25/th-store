@@ -12,7 +12,7 @@ const HomePage = async ({ searchParams, params }: IParams) => {
   const { query } = await generateParams({ searchParams, params });
   return (
     <Layout>
-      <Home params={query} />;
+      <Home params={query} />
     </Layout>
   );
 };

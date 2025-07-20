@@ -1,4 +1,3 @@
-import { SessionProviders } from "@/lib/next-auth/providers";
 import React, { JSX, ReactNode } from "react";
 
 interface ILayoutProps {
@@ -6,7 +5,7 @@ interface ILayoutProps {
 }
 
 const Layout: React.FC<ILayoutProps> = ({ children }): JSX.Element => {
-  return <SessionProviders>{children}</SessionProviders>;
+  return <div>{children}</div>;
 };
 
 export default Layout;

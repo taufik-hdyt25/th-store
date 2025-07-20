@@ -22,10 +22,10 @@ export const authOptions: NextAuthOptions = {
       return token;
     },
     async session({ session, token }) {
-      session.user.id = token.id as string;
-      session.user.image = token.image as string;
-      session.user.email = token.email as string;
-      session.user.name = token.name as string;
+      session.user.id = token.id;
+      session.user.image = token.image;
+      session.user.email = token.email;
+      session.user.name = token.name;
       session.user.role = token.role;
       session.user.token = token.token;
       return session;
