@@ -1,15 +1,6 @@
-"use client";
+import Login from "@/containers/Login";
 
-import LoginForm from "@/containers/Login/Login";
-import { Center } from "@chakra-ui/react";
-import { NextPage } from "next";
-
-const LoginPage: NextPage = () => {
-  return (
-    <Center h={"100vh"}>
-      <LoginForm />
-    </Center>
-  );
+const LoginPage = () => {
+  return <Login />;
 };
-
 export default LoginPage;
