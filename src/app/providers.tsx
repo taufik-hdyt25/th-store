@@ -1,5 +1,6 @@
 "use client";
 import { SessionProviders } from "@/lib/next-auth/providers";
+import myCustomTheme from "@/themes";
 import { ChakraProvider, ColorModeScript } from "@chakra-ui/react";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import React, { Fragment, ReactNode } from "react";
@@ -23,7 +24,7 @@ const Providers: React.FC<IProps> = ({ children }) => {
       <QueryClientProvider client={queryClient}>
         <SessionProviders>
           <ColorModeScript initialColorMode="light" />
-          <ChakraProvider>{children}</ChakraProvider>
+          <ChakraProvider theme={myCustomTheme}>{children}</ChakraProvider>
         </SessionProviders>
       </QueryClientProvider>
     </Fragment>

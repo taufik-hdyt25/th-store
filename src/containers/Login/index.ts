@@ -1,4 +1,4 @@
-"use client"; // WAJIB jika kamu menggunakan komponen klien
+"use client";
 
 import dynamic from "next/dynamic";
 const Login = dynamic(() => import("./Login"), {

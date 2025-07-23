@@ -6,7 +6,7 @@ import { signOut, useSession } from "next-auth/react";
 import React from "react";
 
 const Home: React.FC<IPagesParams> = ({ params }) => {
-  const { data: session } = useSession();
+  const { data: session, status } = useSession();
 
   // const { data } = useQuery({
   //   queryKey: ["posts"],
@@ -18,8 +18,9 @@ const Home: React.FC<IPagesParams> = ({ params }) => {
       <p>
         Hai {session?.user?.name} - ID: {session?.user?.email}
       </p>
-      <Button>oke</Button>
-      <button onClick={() => signOut()}>Logout</button>
+      <Button isLoading={status === "loading"} onClick={() => signOut()}>
+        LOGOUT
+      </Button>
     </div>
   );
 };
