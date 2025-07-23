@@ -5,7 +5,7 @@ const nextConfig: NextConfig = {
   //     globalNotFound: true,
   //   },
   eslint: {
-    ignoreDuringBuilds: true,
+    ignoreDuringBuilds: false,
   },
 };
 

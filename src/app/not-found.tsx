@@ -1,4 +1,5 @@
 import { ArrowLeft, HomeIcon } from "lucide-react";
+import Link from "next/link";
 
 const NotFound = () => {
   return (
@@ -48,7 +49,7 @@ const NotFound = () => {
             width: "100%",
           }}
         >
-          <a
+          <Link
             href="/"
             style={{
               display: "flex",
@@ -64,9 +65,9 @@ const NotFound = () => {
           >
             <HomeIcon size={18} />
             Kembali ke Beranda
-          </a>
+          </Link>
 
-          <a
+          <Link
             href="#"
             style={{
               display: "flex",
@@ -81,7 +82,7 @@ const NotFound = () => {
           >
             <ArrowLeft size={18} />
             Halaman Sebelumnya
-          </a>
+          </Link>
         </div>
       </div>
     </div>

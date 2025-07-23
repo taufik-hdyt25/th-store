@@ -10,7 +10,6 @@ export function generateProductMetadata({
   slug: string;
   gambar: string;
 }) {
-  // const url = configEnv/product/slug
   const url = `https://tokohebat.com/produk/${slug}`;
   return {
     title: nama,

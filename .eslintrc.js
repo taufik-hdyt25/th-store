@@ -1,6 +1,6 @@
 module.exports = {
   root: true,
-  parser: "@typescript-eslint/parser", // ⬅️ Tambahkan ini
+  parser: "@typescript-eslint/parser", // ✅ penting untuk TypeScript
   parserOptions: {
     ecmaVersion: "latest",
     sourceType: "module",
@@ -12,6 +12,7 @@ module.exports = {
   ],
   plugins: ["@typescript-eslint", "unused-imports"],
   rules: {
+    "@typescript-eslint/no-explicit-any": "warn", // ✅ ini akan aktif kalau plugin-nya terinstall
     "@typescript-eslint/no-unused-vars": ["off", { argsIgnorePattern: "^_" }],
     "unused-imports/no-unused-imports": "error",
     "unused-imports/no-unused-vars": [
@@ -23,15 +24,6 @@ module.exports = {
         argsIgnorePattern: "^_",
       },
     ],
-    "@typescript-eslint/no-explicit-any": "off",
     "@next/next/no-html-link-for-pages": "off",
   },
-  overrides: [
-  {
-    files: ['*.ts', '*.tsx'],
-    rules: {
-      '@typescript-eslint/no-explicit-any': 'off',
-    },
-  },
-],
 };

@@ -8,12 +8,12 @@ interface CallAPIProps {
   servicesPath: string;
   url?: string;
   type?: string;
-  params?: Record<string, any>;
+  params?: Record<string, unknown>;
   headers?: Record<string, string>;
   baseURL?: string;
 }
 
-const callAPI = async <T = any>({
+const callAPI = async <T = unknown>({
   method,
   servicesPath,
   url = "",
@@ -42,8 +42,12 @@ const callAPI = async <T = any>({
 
     const response = await axiosInstance.request<T>(config);
     return response.data;
-  } catch (error: any) {
-    throw error?.response?.data || error;
+  } catch (error: unknown) {
+    if (typeof error === "object" && error !== null && "response" in error) {
+      const err = error as { response?: { data?: unknown } };
+      throw err.response?.data || error;
+    }
+    throw error;
   }
 };
 
