@@ -1,4 +1,4 @@
-import { IParams, IQueryParams } from "@/interfaces/IBaseParams";
+import { IParams } from "@/interfaces/IBaseParams";
 
 export const generateParams = async ({ searchParams, params }: IParams) => {
   const result: Record<string, string | number | string[]> = {};

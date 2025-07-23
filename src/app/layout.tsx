@@ -1,7 +1,6 @@
 import { Metadata } from "next";
 import "./global.css";
 import Providers from "./providers";
-import { Geist } from "next/font/google";
 
 export const metadata: Metadata = {
   title: {
@@ -34,10 +33,6 @@ export const metadata: Metadata = {
   },
   metadataBase: new URL("https://example.com"),
 };
-
-const geist = Geist({
-  subsets: ["latin"],
-});
 
 export default function RootLayout({
   children,
