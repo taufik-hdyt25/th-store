@@ -8,11 +8,6 @@ import React from "react";
 const Home: React.FC<IPagesParams> = ({ params }) => {
   const { data: session, status } = useSession();
 
-  // const { data } = useQuery({
-  //   queryKey: ["posts"],
-  //   queryFn: () => getListProductFromAPI(),
-  // });
-
   return (
     <div>
       <p>
