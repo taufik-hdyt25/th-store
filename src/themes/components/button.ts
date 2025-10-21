@@ -35,12 +35,19 @@ export const Button: ComponentStyleConfig = {
       color: "white",
       fontWeight: "600",
       _hover: {
-        bg: "red",
+        bg: "primary",
       },
     },
     ghost: {},
     danger: {},
     info: {},
     link: {},
+    outline: {
+      color: "white",
+      fontWeight: "600",
+      _hover: {
+        bg: "primary",
+      },
+    },
   },
 };

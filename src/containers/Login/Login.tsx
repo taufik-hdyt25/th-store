@@ -66,7 +66,6 @@ const Login: React.FC = () => {
       <Box
         maxW="md"
         w="full"
-        bg="white"
         boxShadow="lg"
         rounded="lg"
         p={8}
@@ -75,10 +74,10 @@ const Login: React.FC = () => {
       >
         <VStack spacing={6} align="stretch">
           <Box textAlign="center">
-            <Heading size="lg" color="gray.700" mb={2}>
+            <Heading size="lg" color="white" mb={2}>
               Masuk ke Akun Anda
             </Heading>
-            <Text color="gray.500" fontSize="sm">
+            <Text color="gray.300" fontSize="sm">
               Silakan masukkan detail akun Anda
             </Text>
           </Box>
@@ -93,7 +92,7 @@ const Login: React.FC = () => {
           <form onSubmit={handleSubmit}>
             <VStack spacing={4}>
               <FormControl isRequired>
-                <FormLabel color="gray.700">Email</FormLabel>
+                <FormLabel color="gray.400">Email</FormLabel>
                 <Input
                   type="email"
                   value={email}
@@ -107,7 +106,7 @@ const Login: React.FC = () => {
               </FormControl>
 
               <FormControl isRequired>
-                <FormLabel color="gray.700">Password</FormLabel>
+                <FormLabel color="gray.400">Password</FormLabel>
                 <InputGroup>
                   <Input
                     type={showPassword ? "text" : "password"}
@@ -193,26 +192,21 @@ const Login: React.FC = () => {
                 />
               </svg>
             }
+            color={"white"}
           >
             Masuk dengan Google
           </Button>
 
           <Box textAlign="center">
-            <Text color="gray.600" fontSize="sm">
+            <Text color="gray.400" fontSize="sm">
               Belum punya akun?{" "}
               <Link
-                color="blue.500"
+                color="white"
                 fontWeight="medium"
                 _hover={{ textDecoration: "underline" }}
               >
                 Daftar sekarang
               </Link>
-            </Text>
-          </Box>
-
-          <Box textAlign="center" pt={2}>
-            <Text fontSize="xs" color="gray.400">
-              Demo: email: demo@example.com, password: password
             </Text>
           </Box>
         </VStack>

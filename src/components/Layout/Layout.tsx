@@ -1,3 +1,6 @@
+"use client";
+
+import { Box } from "@chakra-ui/react";
 import React, { JSX, ReactNode } from "react";
 
 interface ILayoutProps {
@@ -5,7 +8,7 @@ interface ILayoutProps {
 }
 
 const Layout: React.FC<ILayoutProps> = ({ children }): JSX.Element => {
-  return <div>{children}</div>;
+  return <Box>{children}</Box>;
 };
 
 export default Layout;
