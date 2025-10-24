@@ -29,11 +29,11 @@ interface IProps {
 }
 
 const navItems = [
-  { name: "Dashboard", icon: <LayoutDashboard /> },
-  { name: "Order", icon: <Logs /> },
-  { name: "Customer", icon: <Users /> },
-  { name: "Product", icon: <PackageSearch /> },
-  { name: "Setting", icon: <Settings /> },
+  { name: "Dashboard", icon: <LayoutDashboard />, path: "/admin/dashboard" },
+  { name: "Order", icon: <Logs />, path: "/admin/order" },
+  { name: "Customer", icon: <Users />, path: "/admin/customer" },
+  { name: "Product", icon: <PackageSearch />, path: "/admin/product" },
+  { name: "Setting", icon: <Settings />, path: "/admin/setting" },
 ];
 const SideBar: React.FC<IProps> = ({ children }): JSX.Element => {
   const [isOpen, setIsOpen] = useState(true);
@@ -96,6 +96,7 @@ const SideBar: React.FC<IProps> = ({ children }): JSX.Element => {
                 name={isOpen ? v?.name : ""}
                 isOpen={isOpen}
                 icon={v?.icon}
+                path={v?.path}
               />
             ))}
           </Stack>

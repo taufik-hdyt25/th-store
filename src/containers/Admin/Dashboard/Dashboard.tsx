@@ -3,11 +3,15 @@
 import { Layout } from "@/components";
 import { TableCustom } from "@/components/Table";
 import { Column } from "@/components/Table/Table";
-import { IPagesParams } from "@/interfaces/IBaseParams";
+import { IBaseParams } from "@/interfaces/IBaseParams";
+import { pushUrlParam } from "@/utils/redirectParam";
+
 import { TableContainer } from "@chakra-ui/react";
+import { useRouter } from "next/navigation";
 import React from "react";
 
-const Dashboard: React.FC<IPagesParams> = ({ params }) => {
+const Dashboard: React.FC<IBaseParams> = ({ params }) => {
+  const router = useRouter();
   const products = [
     {
       id: 1,
@@ -94,10 +98,14 @@ const Dashboard: React.FC<IPagesParams> = ({ params }) => {
         <TableCustom
           data={products}
           columns={columns}
-          totalItems={50} // contoh total data
-          page={1}
-          totalPages={5}
-          onPageChange={(e) => {}}
+          totalItems={products?.length}
+          page={params?.page || 1}
+          totalPages={100}
+          onPageChange={(e) => {
+            pushUrlParam(router, {
+              page: e,
+            });
+          }}
         />
       </TableContainer>
     </Layout>

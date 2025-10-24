@@ -52,19 +52,21 @@ const Pagination: React.FC<PaginationProps> = ({
         rounded="md"
       />
 
-      {generatePageNumbers().map((page) => (
-        <Button
-          key={page}
-          onClick={() => onPageChange(page)}
-          size="sm"
-          variant={page === currentPage ? "solid" : "outline"}
-          colorScheme={page === currentPage ? "blue" : "gray"}
-          rounded="md"
-          color={page === currentPage ? "white" : "myColor.text-inActive"}
-        >
-          {page}
-        </Button>
-      ))}
+      {generatePageNumbers().map((page) => {
+        return (
+          <Button
+            key={page}
+            onClick={() => onPageChange(page)}
+            size="sm"
+            variant={page === currentPage ? "solid" : "outline"}
+            colorScheme={page === currentPage ? "blue" : "gray"}
+            rounded="md"
+            color={page === currentPage ? "white" : "myColor.text-inActive"}
+          >
+            {page}
+          </Button>
+        );
+      })}
 
       <IconButton
         aria-label="Next page"

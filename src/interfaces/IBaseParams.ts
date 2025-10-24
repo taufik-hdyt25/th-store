@@ -14,3 +14,7 @@ export interface IQueryParams {
 export interface IPagesParams {
   params?: IQueryParams;
 }
+
+export interface IBaseParams {
+  params?: IQueryParams;
+}
