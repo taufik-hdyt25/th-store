@@ -9,9 +9,14 @@ const myCustomTheme = extendTheme({
   },
   colors: {
     primary: "#799EFF",
-    brand: {
-      100: "#f7fafc",
-      900: "#1a202c",
+    myColor: {
+      primary: "var(--primary) ",
+      secondary: "var(--secondary)",
+      text: "var(--text)",
+      bg: "var(--bg)",
+      "bg-sidebar": "var(--bg-sidebar)",
+      "bg-content": "var(--bg-content)",
+      "text-inActive": "var(--text-inActive)",
     },
   },
   components: {
