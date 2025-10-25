@@ -1,5 +1,6 @@
 // import Home from "@/containers/Home/Home";
-import { Home } from "@/containers";
+
+import Home from "@/containers/Home";
 import { generateParams } from "@/helpers/generateParams";
 import { IParams } from "@/interfaces/IBaseParams";
 import { Metadata } from "next";

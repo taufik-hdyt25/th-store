@@ -2,24 +2,27 @@
 
 import { Background, Layout } from "@/components";
 import { IPagesParams } from "@/interfaces/IBaseParams";
-import { Button } from "@chakra-ui/react";
-import { signOut, useSession } from "next-auth/react";
+import { Box, Button, HStack, Image } from "@chakra-ui/react";
 import React from "react";
 
 const Home: React.FC<IPagesParams> = ({ params }) => {
-  const { data: session, status } = useSession();
-
   return (
     <Layout>
       <Background>
-        <div>
-          <p>
-            Hai {session?.user?.name} - ID: {session?.user?.email}
-          </p>
-          <Button isLoading={status === "loading"} onClick={() => signOut()}>
-            LOGOUT
-          </Button>
-        </div>
+        <Box px={10} py={5}>
+          <Image
+            w={"full"}
+            h={"200px"}
+            src="https://www.apridesain.id/blog/wp-content/uploads/2021/06/banner-adalah.jpg"
+          />
+
+          <HStack mt={10}>
+            <Button>Pulsa</Button>
+            <Button>Game</Button>
+            <Button>Voucer</Button>
+            <Button>EMoney</Button>
+          </HStack>
+        </Box>
       </Background>
     </Layout>
   );
