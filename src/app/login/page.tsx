@@ -1,6 +1,6 @@
 "use client";
 import { Background } from "@/components";
-import Login from "@/containers/Login/Login";
+import Login from "@/containers/Login";
 
 const LoginPage = () => {
   return (

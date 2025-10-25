@@ -75,7 +75,7 @@ const Login: React.FC = () => {
         <VStack spacing={6} align="stretch">
           <Box textAlign="center">
             <Heading size="lg" color="white" mb={2}>
-              Masuk ke Akun Anda
+              Login
             </Heading>
             <Text color="gray.300" fontSize="sm">
               Silakan masukkan detail akun Anda
