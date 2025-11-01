@@ -70,7 +70,8 @@ const Login: React.FC = () => {
         rounded="lg"
         p={8}
         border="1px"
-        borderColor="gray.200"
+        bg="rgba(255, 255, 255, 0.1)"
+        backdropFilter="blur(10px)"
       >
         <VStack spacing={6} align="stretch">
           <Box textAlign="center">

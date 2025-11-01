@@ -7,6 +7,11 @@ const myCustomTheme = extendTheme({
     heading: `'Poppins', sans-serif`,
     body: `'Poppins', sans-serif`,
   },
+  textStyles: {
+    lobster: {
+      fontFamily: "var(--font-Lobster)",
+    },
+  },
   colors: {
     primary: "#799EFF",
     myColor: {
@@ -21,6 +26,11 @@ const myCustomTheme = extendTheme({
   },
   components: {
     Button,
+    Text: {
+      baseStyle: {
+        color: "myColor.bg",
+      },
+    },
   },
 });
 

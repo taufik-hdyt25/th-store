@@ -1,4 +1,5 @@
 import { Metadata } from "next";
+import { Lobster_Two } from "next/font/google";
 import "./global.css";
 import Providers from "./providers";
 
@@ -34,6 +35,12 @@ export const metadata: Metadata = {
   metadataBase: new URL("https://example.com"),
 };
 
+const Lobster = Lobster_Two({
+  subsets: ["latin"],
+  variable: "--font-Lobster",
+  weight: ["700"],
+});
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -41,7 +48,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body cz-shortcut-listen="true" className="chakra-ui-light">
+      <body
+        cz-shortcut-listen="true"
+        className={`${Lobster.variable} chakra-ui-light`}
+      >
         <Providers>{children}</Providers>
       </body>
     </html>
