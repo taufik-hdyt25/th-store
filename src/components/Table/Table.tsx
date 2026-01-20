@@ -16,23 +16,23 @@ import {
 } from "@chakra-ui/react";
 import { Pagination } from "../Pagination";
 
-export interface Column<T = any> {
-  key: keyof T;
+export interface Column<T, K extends keyof T = keyof T> {
+  key: K;
   label: string;
-  render?: (value: any, row: T) => React.ReactNode;
+  render?: (value: T[K], row: T) => React.ReactNode;
   styleHeader?: HTMLChakraProps<"th">;
 }
 
-interface TableCustomProps<T = any> {
+interface TableCustomProps<T extends object> {
   data: T[];
-  columns: Column<T>[] | Column<any>[];
+  columns: Column<T>[];
   totalItems: number;
   page: number;
   totalPages: number;
   onPageChange: (page: number) => void;
 }
 
-const TableCustom = <T extends object = any>({
+const TableCustom = <T extends object>({
   data,
   columns,
   totalItems,
@@ -42,18 +42,11 @@ const TableCustom = <T extends object = any>({
 }: TableCustomProps<T>) => {
   return (
     <TableContainer bg="white" rounded="xl" shadow="sm" p={4} overflowX="auto">
-      <Table
-        variant="simple"
-        size="sm"
-        sx={{
-          tableLayout: "auto",
-          width: "100%",
-        }}
-      >
+      <Table variant="simple" size="sm" width="100%">
         <Thead bg="gray.50">
           <Tr h={10}>
-            {columns?.map((col: Column) => (
-              <Th key={String(col.key)} {...col?.styleHeader}>
+            {columns.map((col) => (
+              <Th key={String(col.key)} {...col.styleHeader}>
                 {col.label}
               </Th>
             ))}
@@ -64,13 +57,17 @@ const TableCustom = <T extends object = any>({
           {data.length > 0 ? (
             data.map((row, rowIndex) => (
               <Tr key={rowIndex} _hover={{ bg: "gray.50" }} h={10}>
-                {columns.map((col: any) => (
-                  <Td key={String(col.key)}>
-                    {col.render
-                      ? col.render(row[col.key], row)
-                      : (row[col.key] as React.ReactNode)}
-                  </Td>
-                ))}
+                {columns.map((col) => {
+                  const value = row[col.key];
+
+                  return (
+                    <Td key={String(col.key)}>
+                      {col.render
+                        ? col.render(value, row)
+                        : (value as React.ReactNode)}
+                    </Td>
+                  );
+                })}
               </Tr>
             ))
           ) : (
@@ -100,6 +97,6 @@ const TableCustom = <T extends object = any>({
   );
 };
 
-export default TableCustom as <T extends object = any>(
-  props: TableCustomProps<T>
+export default TableCustom as <T extends object>(
+  props: TableCustomProps<T>,
 ) => JSX.Element;

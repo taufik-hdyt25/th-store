@@ -1,6 +1,5 @@
 import { extendTheme } from "@chakra-ui/react";
 import { Button } from "./components/button";
-import "@fontsource/poppins";
 
 const myCustomTheme = extendTheme({
   fonts: {
@@ -28,7 +27,7 @@ const myCustomTheme = extendTheme({
     Button,
     Text: {
       baseStyle: {
-        color: "myColor.bg",
+        color: "myColor.text",
       },
     },
   },

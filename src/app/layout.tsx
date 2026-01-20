@@ -1,12 +1,12 @@
 import { Metadata } from "next";
 import { Lobster_Two } from "next/font/google";
-import "./global.css";
+import "./globals.css";
 import Providers from "./providers";
 
 export const metadata: Metadata = {
   title: {
     default: "Aplikasi Saya",
-    template: "%s | Aplikasi Saya",
+    template: "%s",
   },
   description: "Aplikasi web modern dengan fitur lengkap.",
   keywords: ["aplikasi", "web", "react", "nextjs", "shadcn"],

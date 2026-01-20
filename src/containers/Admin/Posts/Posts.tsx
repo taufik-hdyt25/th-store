@@ -1,21 +1,31 @@
 import { Layout } from "@/components";
-import { TableCustom } from "@/components/Table";
 import { Column } from "@/components/Table/Table";
 import { IBaseParams } from "@/interfaces/IBaseParams";
-import { pushUrlParam } from "@/utils/redirectParam";
 
 import {
+  Box,
   Button,
   Flex,
   Heading,
   HStack,
-  TableContainer,
+  Stack,
+  Text,
 } from "@chakra-ui/react";
 import { Plus } from "lucide-react";
 import { useRouter } from "next/navigation";
-import React from "react";
 
-const Product: React.FC<IBaseParams> = ({ params }) => {
+import React from "react";
+import { CardBlog } from "./Partials";
+
+type Product = {
+  id: number;
+  name: string;
+  category: string;
+  price: number;
+  stock: number;
+};
+
+const Posts: React.FC<IBaseParams> = ({ params }) => {
   const router = useRouter();
   const products = [
     {
@@ -84,7 +94,7 @@ const Product: React.FC<IBaseParams> = ({ params }) => {
     },
   ];
 
-  const columns: Column<any>[] = [
+  const columns: Column<Product>[] = [
     { key: "id", label: "ID", styleHeader: { w: 0 } },
     { key: "name", label: "Nama Produk" },
     { key: "category", label: "Kategori" },
@@ -102,19 +112,33 @@ const Product: React.FC<IBaseParams> = ({ params }) => {
       <HStack
         bg={"white"}
         mb={5}
-        px={3}
+        px={5}
         py={5}
         rounded={"md"}
         shadow={"sm"}
         justify={"space-between"}
       >
-        <Heading fontSize={"xl"}>Product</Heading>
+        <Box>
+          <Heading fontSize={"xl"}>Blog Posts</Heading>
+          <Text color={"gray"}>Kelola semua blog post anda</Text>
+        </Box>
 
         <Flex>
-          <Button leftIcon={<Plus />}>Add New Product</Button>
+          <Button leftIcon={<Plus />}>Add New Post</Button>
         </Flex>
       </HStack>
-      <TableContainer>
+
+      <Box bg={"white"} rounded={"xl"} shadow={"sm"} px={5} py={5}>
+        <Heading fontSize={"md"}>Semua Posts (2)</Heading>
+
+        <Stack mt={5} spacing={4}>
+          <CardBlog />
+          <CardBlog />
+          <CardBlog />
+        </Stack>
+      </Box>
+
+      {/* <TableContainer>
         <TableCustom
           data={products}
           columns={columns}
@@ -127,9 +151,9 @@ const Product: React.FC<IBaseParams> = ({ params }) => {
             });
           }}
         />
-      </TableContainer>
+      </TableContainer> */}
     </Layout>
   );
 };
 
-export default Product;
+export default Posts;

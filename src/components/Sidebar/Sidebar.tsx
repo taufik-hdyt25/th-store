@@ -14,11 +14,11 @@ import {
 import {
   ChevronLeft,
   ChevronRight,
+  FileText,
+  FolderTree,
   LayoutDashboard,
-  Logs,
-  PackageSearch,
+  Paperclip,
   Settings,
-  Users,
 } from "lucide-react";
 import React, { JSX, ReactNode, useState } from "react";
 import { Header } from "../Header";
@@ -29,11 +29,19 @@ interface IProps {
 }
 
 const navItems = [
-  { name: "Dashboard", icon: <LayoutDashboard />, path: "/admin/dashboard" },
-  { name: "Order", icon: <Logs />, path: "/admin/order" },
-  { name: "Customer", icon: <Users />, path: "/admin/customer" },
-  { name: "Product", icon: <PackageSearch />, path: "/admin/product" },
-  { name: "Setting", icon: <Settings />, path: "/admin/setting" },
+  {
+    name: "Dashboard",
+    icon: <LayoutDashboard />,
+    path: "/admin/dashboard",
+  },
+  { name: "Posts", icon: <FileText />, path: "/admin/posts" },
+  {
+    name: "Categories & Tags",
+    icon: <FolderTree />,
+    path: "/admin/categories",
+  },
+  { name: "Media Library", icon: <Paperclip />, path: "/admin/media" },
+  { name: "Settings", icon: <Settings />, path: "/admin/settings" },
 ];
 const SideBar: React.FC<IProps> = ({ children }): JSX.Element => {
   const [isOpen, setIsOpen] = useState(true);

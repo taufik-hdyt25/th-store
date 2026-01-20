@@ -1,17 +1,17 @@
 // import Home from "@/containers/Home/Home";
 
-import Product from "@/containers/Admin/Posts";
+import Posts from "@/containers/Admin/Posts";
 import { generateParams } from "@/helpers/generateParams";
 import { IParams } from "@/interfaces/IBaseParams";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Beranda - Aplikasi Saya",
+  title: "Posts - Aplikasi Saya",
 };
-const ProductPage = async ({ searchParams, params }: IParams) => {
+const PostsPage = async ({ searchParams, params }: IParams) => {
   const { query } = await generateParams({ searchParams, params });
 
-  return <Product params={query} />;
+  return <Posts params={query} />;
 };
 
-export default ProductPage;
+export default PostsPage;
