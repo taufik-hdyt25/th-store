@@ -11,6 +11,9 @@ interface IProps {
 const NavItem: React.FC<IProps> = ({ name, icon, isOpen, path }) => {
   const pathName = usePathname();
 
+  const paths = path?.split("/").pop();
+  const currentPaths = pathName.split("/")[2];
+
   return (
     <Flex
       role="group"
@@ -23,8 +26,8 @@ const NavItem: React.FC<IProps> = ({ name, icon, isOpen, path }) => {
       }}
       gap={3}
       p={3}
-      bg={pathName === path ? "#3587FF" : "transparent"}
-      color={pathName === path ? "white" : "black"}
+      bg={currentPaths === paths ? "#3587FF" : "transparent"}
+      color={currentPaths === paths ? "white" : "black"}
       rounded={"lg"}
       _hover={{
         bg: "#3587FF",
@@ -36,7 +39,7 @@ const NavItem: React.FC<IProps> = ({ name, icon, isOpen, path }) => {
       {isOpen && (
         <Text
           _groupHover={{ color: "white" }}
-          color={pathName === path ? "white" : "black"}
+          color={currentPaths === paths ? "white" : "black"}
         >
           {name}
         </Text>

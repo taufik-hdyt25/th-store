@@ -1,6 +1,14 @@
 "use client";
 
-import { Box, FormControl, FormLabel, Input } from "@chakra-ui/react";
+import {
+  Box,
+  Button,
+  Flex,
+  FormControl,
+  FormLabel,
+  Input,
+  Select,
+} from "@chakra-ui/react";
 import ClassicEditor from "@ckeditor/ckeditor5-build-classic";
 import { CKEditor } from "@ckeditor/ckeditor5-react";
 
@@ -38,8 +46,17 @@ const FormPost = ({ value = "", onChange }: FormPostProps) => {
       }}
     >
       <FormControl mb={5} display={"flex"} alignItems={"center"}>
-        <FormLabel>Title</FormLabel>
+        <FormLabel minW={"150px"}>Title</FormLabel>
         <Input placeholder={"Buat judul"} />
+      </FormControl>
+
+      <FormControl mb={5} display={"flex"} alignItems={"center"}>
+        <FormLabel minW={"150px"}>Category</FormLabel>
+        <Select placeholder="Select Category">
+          <option value="tech">Tech</option>
+          <option value="life">Life</option>
+          <option value="travel">Travel</option>
+        </Select>
       </FormControl>
       <CKEditor
         editor={ClassicEditor}
@@ -114,6 +131,12 @@ const FormPost = ({ value = "", onChange }: FormPostProps) => {
           },
         }}
       />
+
+      <Flex justify={"end"}>
+        <Button mt={5} px={10}>
+          Post Now
+        </Button>
+      </Flex>
     </Box>
   );
 };
